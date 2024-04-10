@@ -7,19 +7,8 @@ public class VowelPresenceChecker {
         System.out.print("Enter a string: ");
         String inputString = scanner.nextLine();
 
-        int vowelCount = 0;
-        boolean vowelPresent = false;
-
-        inputString = inputString.toLowerCase();
-
-        // Check each character in the string
-        for (int i = 0; i < inputString.length(); i++) {
-            char ch = inputString.charAt(i);
-            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
-                vowelPresent = true;
-                vowelCount++;
-            }
-        }
+        int vowelCount = countVowels(inputString);
+        boolean vowelPresent = vowelCount > 0;
 
         if (vowelPresent) {
             System.out.println("Yes, vowels are present in the string.");
@@ -29,5 +18,17 @@ public class VowelPresenceChecker {
         }
 
         scanner.close();
+    }
+
+    public static int countVowels(String str) {
+        int count = 0;
+        str = str.toLowerCase();
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+                count++;
+            }
+        }
+        return count;
     }
 }
